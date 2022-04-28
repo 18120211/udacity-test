@@ -79,6 +79,7 @@ jobs:
           paths: [frontend/node_modules]
           key: frontend-build
 
+
   build-backend:
     docker:
       - image: circleci/node:13.8.0
@@ -86,6 +87,7 @@ jobs:
       - checkout
       - restore_cache:
           keys: [backend-build]
+
       - run:
           name: Back-end build
           command: |
@@ -123,6 +125,7 @@ jobs:
           paths: [backend/node_modules]
           key: backend-build
 
+
   test-frontend:
     docker:
       # Docker image here
@@ -150,6 +153,7 @@ jobs:
       # Restore from cache
       - restore_cache:
           keys: [backend-build]
+
       # Your job code here
       - run:
           name: Back-end test
@@ -167,6 +171,7 @@ jobs:
       # Restore from cache
       - restore_cache:
           keys: [frontend-build]
+
       # Your job code here
       - run:
           name: Front-end scan
@@ -228,6 +233,7 @@ jobs:
           paths:
             - project/.circleci/ansible/inventory.txt
       # Here's where you will add some code to rollback on failure      
+
 
   # configure-infrastructure:
   #   docker:
