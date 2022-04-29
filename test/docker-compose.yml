@@ -11,6 +11,6 @@ services:
     ports:
       - "5532:5432"
   remote-host:
-    image: remote-host
+    image: remote-host:20.04
     container_name: remote-host
   
